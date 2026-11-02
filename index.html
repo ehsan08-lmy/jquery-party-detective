@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment #6 — jQuery Party Detective</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <p class="eyebrow">AITU · INTERACTIVE INVESTIGATION</p>
+            <h1>🎂 The Missing Birthday Cake</h1>
+            <p>Party timeline · 19:30–22:30 · 4 rooms · 2 floors</p>
+        </div>
+
+        <div class="header-stat">
+            <strong id="guestCount">23</strong>
+            <span>guest cards</span>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="toolbar">
+            <div>
+                <h2>The house</h2>
+                <p>Choose a case to search the guest cards. The page is rebuilt before every case.</p>
+            </div>
+
+            <button id="clearBtn" class="secondary">Clear spotlight</button>
+        </section>
+
+        <div class="floor-label">FLOOR 2</div>
+
+        <section class="floor upper">
+
+            <article class="room" id="balcony" data-room="Balcony">
+                <div class="room-head">
+                    <h3>🌿 Balcony</h3>
+                    <span>Floor 2</span>
+                </div>
+
+                <div class="guest-list"></div>
+            </article>
+
+            <article class="room" id="hall" data-room="Hall">
+                <div class="room-head">
+                    <h3>🚪 Hall</h3>
+                    <span>Floor 2</span>
+                </div>
+
+                <div class="guest-list"></div>
+            </article>
+
+        </section>
+
+        <div class="floor-label">FLOOR 1</div>
+
+        <section class="floor lower">
+
+            <article class="room" id="kitchen" data-room="Kitchen">
+                <div class="room-head">
+                    <h3>🍳 Kitchen</h3>
+                    <span>Floor 1</span>
+                </div>
+
+                <div class="guest-list"></div>
+            </article>
+
+            <article class="room" id="living" data-room="Living room">
+                <div class="room-head">
+                    <h3>🛋️ Living room</h3>
+                    <span>Floor 1</span>
+                </div>
+
+                <div class="guest-list"></div>
+            </article>
+
+        </section>
+
+        <section class="legend">
+            <b>Clothing</b>
+
+            <span><i class="dot red"></i> Red</span>
+            <span><i class="dot blue"></i> Blue</span>
+            <span><i class="dot green"></i> Green</span>
+            <span><i class="dot black"></i> Black</span>
+            <span><i class="dot yellow"></i> Yellow</span>
+            <span><i class="dot purple"></i> Purple</span>
+
+            <span>📱 Phone</span>
+            <span>👓 Glasses</span>
+            <span>👜 Bag</span>
+            <span>☕ Cup</span>
+            <span>🍰 Crumbs</span>
+            <span>🔵 AITU student</span>
+        </section>
+
+        <section class="cases">
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">TASK 1</p>
+                    <h2>Selector detective</h2>
+                </div>
+
+                <p>Each button runs one jQuery selector/traversal chain against the rendered page.</p>
+            </div>
+
+            <div id="caseGrid" class="case-grid"></div>
+
+            <div id="result" class="result" aria-live="polite">
+                Select a case to reveal the matching guests.
+            </div>
+
+        </section>
+
+        <section class="motion">
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">TASK 2</p>
+                    <h2>The party in motion</h2>
+                </div>
+
+                <p>Try the four effects and the quick-click test.</p>
+            </div>
+
+            <div class="motion-grid">
+
+                <div class="motion-box">
+                    <h3>1 · Spotlight</h3>
+                    <p>Case results stay bright; everyone else fades.</p>
+
+                    <div class="mini-buttons">
+                        <button data-motion="spotlight">Spotlight case 3</button>
+                        <button data-motion="clear">Clear</button>
+                    </div>
+                </div>
+
+                <div class="motion-box">
+                    <h3>2 · Guest card</h3>
+                    <p>Click a guest to expand the card. Press Esc to close it.</p>
+
+                    <div class="mini-buttons">
+                        <button data-motion="hint">How to use</button>
+                    </div>
+                </div>
+
+                <div class="motion-box">
+                    <h3>3 · Move</h3>
+                    <p>Move Arman from the hall to the balcony.</p>
+
+                    <div class="mini-buttons">
+                        <button data-motion="move">Move Arman</button>
+                    </div>
+                </div>
+
+                <div class="motion-box">
+                    <h3>4 · Sort by time</h3>
+                    <p>Sort the living room by arrival time; click again to restore.</p>
+
+                    <div class="mini-buttons">
+                        <button data-motion="sort">Sort living room</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="motionStatus" class="motion-status">
+                Effects use jQuery fadeTo(), animate(), stop(), offset(), position(), clone(), append() and on().
+            </p>
+
+        </section>
+
+        <footer>
+            Assignment #6 · jQuery Selectors, Effects & Animations · AITU
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
