@@ -286,24 +286,30 @@ function runCase(n) {
       desc = "Guests whose next neighbor wears black.";
       break;
     case 14:
-      $f = $(".room").has('.guest-card[data-name="Aruzhan"]');
-      desc = "The room containing Aruzhan.";
+      $f = $(".room")
+        .has('.guest-card[data-name="Aruzhan"]')
+        .find(".guest-card");
+      desc = "All guest cards in the room containing Aruzhan.";
       break;
     case 15:
-      $f = $(".room").filter(function () {
-        return $(this).find(".guest-card").length < 6;
-      });
-      desc = "Rooms containing fewer than six guest cards.";
+      $f = $(".room")
+        .filter(function () {
+          return $(this).find(".guest-card").length < 6;
+        })
+        .find(".guest-card");
+      desc = "Guest cards in rooms containing fewer than six guests.";
       break;
     case 16:
-      $f = $(".room").filter(function () {
-        let $r = $(this);
-        return (
-          $r.find('.guest-card[data-items*="cup"]').length > 0 &&
-          $r.find('.guest-card[data-items*="glasses"]').length === 0
-        );
-      });
-      desc = "Rooms with at least one cup and no guest wearing glasses.";
+      $f = $(".room")
+        .filter(function () {
+          let $r = $(this);
+          return (
+            $r.find('.guest-card[data-items*="cup"]').length > 0 &&
+            $r.find('.guest-card[data-items*="glasses"]').length === 0
+          );
+        })
+        .find(".guest-card");
+      desc = "Guest cards in rooms with at least one cup and no guest wearing glasses.";
       break;
     case 17:
       $(".room").each(function () {
